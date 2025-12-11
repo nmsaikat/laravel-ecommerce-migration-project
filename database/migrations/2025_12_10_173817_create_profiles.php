@@ -13,7 +13,20 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('firstName', 50);
+            $table->string('lastName', 50);
+            $table->string('mobile', 50);
+            $table->string('city', 50);
+            $table->string('city', 50);
+            $table->string('shippingAddress', 1000);
+            $table->string('email', 100)->unique();
+
+            // I have created a relationship between the user profile and the user table
+            $table->foreing('email')->references('email')->on('users')
+                ->restrictOnDelete()->cascadeOnUpdate();
+
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
