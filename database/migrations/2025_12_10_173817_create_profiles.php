@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('lastName', 50);
             $table->string('mobile', 50);
             $table->string('city', 50);
-            $table->string('city', 50);
             $table->string('shippingAddress', 1000);
             $table->string('email', 100)->unique();
 
