@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email', 100)->unique();
 
             // I have created a relationship between the user profile and the user table
-            $table->foreing('email')->references('email')->on('users')
+            $table->foreign('email')->references('email')->on('users')
                 ->restrictOnDelete()->cascadeOnUpdate();
 
             $table->timestamp('created_at')->useCurrent();
